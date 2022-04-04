@@ -4,16 +4,23 @@ public class Permutation {
     static void recurPermute(ArrayList<Integer> arr, boolean[] freq, int[] nums) {
         if (arr.size() == nums.length) {
             System.out.println(arr);
-            arr.clear();
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-
+            if (freq[i] == false) {
+                freq[i] = true;
+                arr.add(nums[i]);
+                recurPermute(arr, freq, nums);
+                arr.remove(arr.size() - 1);
+                freq[i] = false;
+            }
         }
     }
 
+    static Scanner sc;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
         ArrayList<Integer> arr = new ArrayList<>();
         System.out.println("Enter size of array:");
         int n = sc.nextInt();

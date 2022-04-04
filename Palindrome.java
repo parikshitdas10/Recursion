@@ -11,8 +11,10 @@ class Palindrome {
         return isPalindrome(str, l + 1, r - 1);
     }
 
+    static Scanner sc;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
         System.out.println("Enter String: ");
         String str = sc.nextLine();
         int l = 0;
